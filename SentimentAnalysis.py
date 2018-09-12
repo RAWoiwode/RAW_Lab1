@@ -11,7 +11,6 @@ reddit = praw.Reddit(client_id='odxohzyZoug0Cg',
 nltk.download('vader_lexicon')
 sid = SentimentIntensityAnalyzer()
 
-
 def get_text_negative_proba(text):
    return sid.polarity_scores(text)['neg']
 
@@ -53,8 +52,8 @@ def process_comments(comments, neg_comments, neu_comments, pos_comments,
         Print out the end of a branch. Verify by checking the subreddit and
         looking at the end of reply branches
         '''
-        if not replies_to_comment:
-            print(comments[i].body)
+        # if not replies_to_comment:
+        #     print(comments[i].body)
         # End of Test 1
 
         # See if the comment/reply has replies
@@ -70,17 +69,20 @@ def process_comments(comments, neg_comments, neu_comments, pos_comments,
         elif pos >= pos_threshold:
             pos_comments.append(comments[i].body)
 
+def get_oldest_comment_any():
+    return oldest_list.pop()
+
 def main():
     negative_comments_list, neutral_comments_list, positive_comments_list = list(), list(), list()
-    # print('What is recursion thread')
-    # comments = get_submission_comments('https://www.reddit.com/r/learnprogramming/comments/5w50g5/eli5_what_is_recursion/')
+    print('What is recursion thread')
+    comments = get_submission_comments('https://www.reddit.com/r/learnprogramming/comments/5w50g5/eli5_what_is_recursion/')
     '''
     Test 2:
     Try the code with a different subreddit thread and see if it functions
     properly.
     '''
-    print('Python Cheat Sheet thread')
-    comments = get_submission_comments('https://www.reddit.com/r/Python/comments/7mwgtw/python_cheet_sheet_for_begineers/')
+    # print('Python Cheat Sheet thread')
+    # comments = get_submission_comments('https://www.reddit.com/r/Python/comments/7mwgtw/python_cheet_sheet_for_begineers/')
     # End of Test 2
     process_comments(comments, negative_comments_list, neutral_comments_list, positive_comments_list)
     print('Negative - ', negative_comments_list)
