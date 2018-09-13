@@ -69,8 +69,6 @@ def process_comments(comments, neg_comments, neu_comments, pos_comments,
         elif pos >= pos_threshold:
             pos_comments.append(comments[i].body)
 
-def get_oldest_comment_any():
-    return oldest_list.pop()
 
 def main():
     negative_comments_list, neutral_comments_list, positive_comments_list = list(), list(), list()
