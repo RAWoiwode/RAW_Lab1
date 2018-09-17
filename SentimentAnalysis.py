@@ -83,8 +83,8 @@ def main():
     # comments = get_submission_comments('https://www.reddit.com/r/Python/comments/7mwgtw/python_cheet_sheet_for_begineers/')
     # End of Test 2
     process_comments(comments, negative_comments_list, neutral_comments_list, positive_comments_list)
-    print('Negative - ', negative_comments_list)
-    print('Neutral - ', neutral_comments_list)
-    print('Positive - ', positive_comments_list)
+    print('\nNegative - ', negative_comments_list)
+    print('\nNeutral - ', neutral_comments_list)
+    print('\nPositive - ', positive_comments_list)
 
 main()
